@@ -1,0 +1,30 @@
+{
+  "name": "revrule-mcp",
+  "version": "1.0.0",
+  "description": "RevRule by Payload as an MCP server: read entitlement graphs and payout evidence, dry-run revenue events, via the Payload rail API with your own rail API key.",
+  "license": "MIT",
+  "author": "Payload",
+  "homepage": "https://github.com/Payloadhq/revrule-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Payloadhq/revrule-mcp"
+  },
+  "keywords": [
+    "revrule",
+    "mcp",
+    "agents",
+    "revenue",
+    "entitlements"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./mcp/index.js",
+  "bin": {
+    "revrule-mcp": "./mcp/index.js"
+  },
+  "scripts": {
+    "start": "node mcp/index.js"
+  },
+  "dependencies": {}
+}
