@@ -1,4 +1,4 @@
-<!-- mcp-name: io.github.Payloadhq/revrule-mcp -->
+<!-- mcp-name: io.github.payload-tools/revrule-mcp -->
 
 # RevRule by Payload — MCP Server
 
