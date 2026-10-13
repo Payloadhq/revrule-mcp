@@ -1,0 +1,69 @@
+{
+  "author": {
+    "name": "Payload",
+    "url": "https://github.com/Payloadhq"
+  },
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18"
+    }
+  },
+  "description": "RevRule by Payload, exposed for AI agents. Read your revenue entitlement graphs, review payout evidence linked to on-chain settlements, and dry-run revenue events against your rules with zero side effects. Requires your own Payload rail API key with a RevRule entitlement.",
+  "display_name": "RevRule by Payload",
+  "homepage": "https://github.com/Payloadhq/payload-flow",
+  "icon": "icon.png",
+  "keywords": [
+    "revrule",
+    "mcp",
+    "ai-agents",
+    "revenue",
+    "entitlements",
+    "payouts",
+    "royalties"
+  ],
+  "license": "MIT",
+  "long_description": "RevRule turns revenue sharing into declarative entitlement rules on the Payload rail: define who gets paid what, and every payout carries evidence linked back to the original entitlement ledger entry and its on-chain settlement. This bundle installs the RevRule MCP server (Node.js standard library only, zero dependencies), exposing a read + dry-run surface over stdio: revrule_get_graph (fetch a revenue entitlement graph), revrule_list_payout_evidence (list payout evidence linked to the graph's entitlement entries: transaction hash, log index, block data, authorizing signature), and revrule_simulate_event (dry-run a revenue event against the graph's rules with zero side effects; nothing is recorded and no payout is prepared or submitted). There are deliberately no write/submit tools in v1. Every call goes to the live Payload rail (https://payload-rail.fly.dev) authenticated with YOUR OWN rail API key (Bearer, RevRule entitlement required); the key is read from PAYLOAD_RAIL_API_KEY and never leaves your machine except as the Authorization header to the rail. With no key configured the server still starts and lists tools, and every tool call fails closed with a clear 'API key not configured' error.",
+  "manifest_version": "0.3",
+  "name": "revrule",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Payloadhq/revrule-mcp"
+  },
+  "server": {
+    "entry_point": "server/mcp/index.js",
+    "mcp_config": {
+      "args": [
+        "${__dirname}/server/mcp/index.js"
+      ],
+      "command": "node",
+      "env": {
+        "PAYLOAD_RAIL_API_KEY": "${user_config.rail_api_key}",
+        "PAYLOAD_RAIL_URL": "${user_config.rail_url}"
+      }
+    },
+    "type": "node"
+  },
+  "tools": [],
+  "user_config": {
+    "rail_api_key": {
+      "description": "Your own Payload rail API key with a RevRule entitlement (PAYLOAD_RAIL_API_KEY). Sent to the rail only as a Bearer Authorization header. Tools fail closed when unset.",
+      "required": false,
+      "sensitive": true,
+      "title": "Payload rail API key",
+      "type": "string"
+    },
+    "rail_url": {
+      "default": "https://payload-rail.fly.dev",
+      "description": "Payload rail base URL (PAYLOAD_RAIL_URL). Defaults to the production rail.",
+      "required": false,
+      "title": "Payload rail URL",
+      "type": "string"
+    }
+  },
+  "version": "1.0.0"
+}
