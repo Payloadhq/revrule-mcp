@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.Payloadhq/revrule-mcp",
+  "name": "io.github.payload-tools/revrule-mcp",
   "title": "RevRule by Payload",
   "description": "RevRule by Payload: read entitlement graphs, review payout evidence, dry-run revenue events.",
   "version": "1.0.0",
