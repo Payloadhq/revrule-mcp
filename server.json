@@ -1,0 +1,24 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Payloadhq/revrule-mcp",
+  "title": "RevRule by Payload",
+  "description": "RevRule by Payload: read entitlement graphs, review payout evidence, dry-run revenue events.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "websiteUrl": "https://github.com/Payloadhq/revrule-mcp",
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/Payloadhq/revrule-mcp"
+  },
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://raw.githubusercontent.com/Payloadhq/revrule-mcp/main/revrule.mcpb",
+      "fileSha256": "3c15a4d3ee006a47efcf87f9cba7a708a0875bfe1cc7f246c2151329e73feadc",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
