@@ -4,7 +4,7 @@
 
 An [MCP](https://modelcontextprotocol.io) server (stdio transport, Node.js standard library only, zero dependencies) that exposes **RevRule**, Payload's revenue-entitlement engine, to AI agents.
 
-RevRule turns revenue sharing into declarative entitlement rules on the Payload rail: define who gets paid what, and every payout carries evidence linked back to the original entitlement ledger entry and its on-chain settlement. This server is a **read + dry-run** surface: there are deliberately no write/submit tools in v1. Every call goes to the live Payload rail (`https://payload-rail.fly.dev`) authenticated with **your own** rail API key (RevRule entitlement required).
+RevRule turns revenue sharing into declarative entitlement rules on the Payload rail: define who gets paid what, and every payout carries evidence linked back to the original entitlement ledger entry and its on-chain settlement. This server is a **read + dry-run** surface: there are deliberately no write/submit tools in v1. Every call goes to the live Payload rail (`https://payload-rail.fly.dev`) authenticated with **your own** rail API key (a free self-serve key from the console is enough to evaluate).
 
 ## Tools
 
@@ -54,10 +54,21 @@ MCP client configuration (stdio):
 
 | Variable | Required | Default | Purpose |
 |----------|----------|---------|---------|
-| `PAYLOAD_RAIL_API_KEY` | Required for tool calls | — | Your own Payload rail API key with a RevRule entitlement. Sent to the rail only as a Bearer `Authorization` header. |
+| `PAYLOAD_RAIL_API_KEY` | Required for tool calls | — | Your own Payload rail API key. A free self-serve key from the console works for evaluation; the paid license covers production use. Sent to the rail only as a Bearer `Authorization` header. |
 | `PAYLOAD_RAIL_URL` | Optional | `https://payload-rail.fly.dev` | Payload rail base URL. |
 
 **Fail-closed:** with no API key configured, the server still starts and lists its tools, and every tool call returns a clear `API key not configured` error. The key never leaves your machine except as the Authorization header to the rail.
+
+## Free evaluation and the paid license
+
+**Free.** You can evaluate RevRule end to end without paying:
+
+- The [RevRule sandbox](https://payloadhq.github.io/revrule-sandbox.html) runs the actual engine in your browser: define a graph, fire events, and inspect the entitlement ledger.
+- The [RevRule console](https://payload-rail.fly.dev/revrule-console/) issues a free self-serve Payload rail API key. With that key, this server's reads (`revrule_get_graph`, `revrule_list_payout_evidence`) and the zero-side-effect dry run (`revrule_simulate_event`) work against your own graphs. A paid entitlement is not required to evaluate.
+
+**Paid.** The [RevRule license](https://payloadhq.github.io/revrule.html) is $99 one-time. It is the production product: run your real revenue graphs on the rail with the entitlement ledger and payout evidence as your system of record, instead of evaluating in the sandbox.
+
+RevRule computes who is owed what and records the evidence. It does not execute payments and it never holds funds; your own systems and payment partners move the money.
 
 ## License
 
