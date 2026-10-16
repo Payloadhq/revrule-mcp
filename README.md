@@ -12,13 +12,13 @@ RevRule turns revenue sharing into declarative entitlement rules on the Payload 
 |------|---------------|--------------|
 | `revrule_get_graph` | `GET /v1/graphs/{graph_id}` | Fetch one of your RevRule revenue entitlement graphs by id: its participants, rules, and ledger wiring. Read-only. |
 | `revrule_list_payout_evidence` | `GET /v1/graphs/{graph_id}/payout-evidence` | List payout evidence recorded for a graph: verified payouts linked back to the original entitlement ledger entries (transaction hash, log index, block data, authorizing signature). Read-only. |
-| `revrule_simulate_event` | `POST /v1/graphs/{graph_id}/simulate` | Dry-run a revenue event against a graph's rules and see what the rules would produce, with **zero side effects**: nothing is recorded, no payout is prepared or submitted. The event payload is passed through to the rail unchanged. |
+| `revrule_simulate_event` | `POST /v1/graphs/{graph_id}/simulate` | Dry-run a revenue event against a graph's rules and see what the rules would produce, with **zero side effects**: nothing is recorded, no payout is prepared or submitted. The tool wraps the supplied event as `{event: ...}` for the production rail; simulation has no side effects. |
 
 ## Install
 
-### Via Smithery
+### Verified MCPB release
 
-Listed on Smithery as [kyler-simmons-partners/revrule](https://smithery.ai/servers/kyler-simmons-partners/revrule), or install the MCPB bundle from this repo (`revrule.mcpb`) in any MCPB-compatible client.
+Install the [revrule v1.1.0 MCPB bundle](https://github.com/Payloadhq/revrule-mcp/releases/download/v1.1.0/revrule.mcpb) in an MCPB-compatible client, or run from source below. The published bundle declares the supported MCP tools. This direct release is the verified installation path while third-party directory listings are revalidated.
 
 ### From source
 
