@@ -14,7 +14,7 @@
     {
       "registryType": "mcpb",
       "identifier": "https://github.com/Payloadhq/revrule-mcp/releases/download/v1.1.0/revrule.mcpb",
-      "fileSha256": "c8b2d6d34610397b9bf3ee3eeee8ae4d9b851c33911fbb4173bc612fd0e34bf6",
+      "fileSha256": "37ba172465056c1b32297aef70a73f918260053d66d981f758c9d1d777afaa2b",
       "version": "1.1.0",
       "transport": {
         "type": "stdio"
