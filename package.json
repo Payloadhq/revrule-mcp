@@ -1,6 +1,6 @@
 {
   "name": "revrule-mcp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "RevRule by Payload as an MCP server: read entitlement graphs and payout evidence, dry-run revenue events, via the Payload rail API with your own rail API key.",
   "license": "MIT",
   "author": "Payload",
