@@ -48,7 +48,57 @@
     },
     "type": "node"
   },
-  "tools": [],
+  "tools": [
+    {
+      "name": "revrule_get_graph",
+      "description": "Read an authorized RevRule entitlement graph.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "graph_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "graph_id"
+        ]
+      }
+    },
+    {
+      "name": "revrule_list_payout_evidence",
+      "description": "Read payout evidence for an authorized RevRule graph.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "graph_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "graph_id"
+        ]
+      }
+    },
+    {
+      "name": "revrule_simulate_event",
+      "description": "Dry-run a revenue event on an authorized graph with no side effects.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "graph_id": {
+            "type": "string"
+          },
+          "event": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "graph_id",
+          "event"
+        ]
+      }
+    }
+  ],
   "user_config": {
     "rail_api_key": {
       "description": "Your own Payload rail API key with a RevRule entitlement (PAYLOAD_RAIL_API_KEY). Sent to the rail only as a Bearer Authorization header. Tools fail closed when unset.",
@@ -65,5 +115,5 @@
       "type": "string"
     }
   },
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
