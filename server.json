@@ -3,7 +3,7 @@
   "name": "io.github.payload-tools/revrule-mcp",
   "title": "RevRule by Payload",
   "description": "RevRule by Payload: read entitlement graphs, review payout evidence, dry-run revenue events.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "websiteUrl": "https://github.com/Payloadhq/revrule-mcp",
   "repository": {
@@ -13,9 +13,9 @@
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/Payloadhq/revrule-mcp/releases/download/v1.0.0/revrule.mcpb",
-      "fileSha256": "3c15a4d3ee006a47efcf87f9cba7a708a0875bfe1cc7f246c2151329e73feadc",
-      "version": "1.0.0",
+      "identifier": "https://github.com/Payloadhq/revrule-mcp/releases/download/v1.1.0/revrule.mcpb",
+      "fileSha256": "c8b2d6d34610397b9bf3ee3eeee8ae4d9b851c33911fbb4173bc612fd0e34bf6",
+      "version": "1.1.0",
       "transport": {
         "type": "stdio"
       }
