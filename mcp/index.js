@@ -25,7 +25,7 @@
  */
 const readline = require('node:readline');
 
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 const PROTOCOL_VERSION = '2024-11-05';
 const SERVER_NAME = 'revrule';
 const DEFAULT_RAIL_URL = 'https://payload-rail.fly.dev';
@@ -134,8 +134,8 @@ const TOOLS = [
     description:
       'Dry-run a revenue event against a graph\'s rules and see what the ' +
       'rules would produce, with ZERO side effects: nothing is recorded, ' +
-      'no payout is prepared or submitted. The event payload is passed ' +
-      'through to the rail unchanged. ' +
+      'no payout is prepared or submitted. The event payload is wrapped in {event} ' +
+      'for the existing rail REST API. ' +
       '(Rail route: POST /v1/graphs/{graph_id}/simulate.)',
     inputSchema: {
       type: 'object',
@@ -149,7 +149,7 @@ const TOOLS = [
       required: ['graph_id', 'event'],
     },
     run: (args) =>
-      railRequest('POST', `/v1/graphs/${encodeURIComponent(args.graph_id)}/simulate`, args.event),
+      railRequest('POST', `/v1/graphs/${encodeURIComponent(args.graph_id)}/simulate`, { event: args.event }),
   },
 ];
 
